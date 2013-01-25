@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-	<title>My Page</title> 
+	<title>Plunk</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0.min.css" />
 	<script src="js/jquery.js"></script>
@@ -114,6 +114,21 @@
 	
 </head> 
 <body onload="init()"> 
+	
+	
+	
+	
+	<!-- this just shows the username ID -->
+	<div id="container">
+		<div class="header">
+			<div class="userContainer">
+				<span class="username value">Unknown</span>
+			</div>
+		</div>
+	</div>
+
+
+	
 
 <!-- Start of INSTRUMENT IDEA -->
 <div data-role="page" id="page2">
@@ -124,7 +139,6 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<p>Draw a picture:</p>	
 		
 
 	  	<canvas id="paintBox">
@@ -134,15 +148,32 @@
     	<input type="button" value="Clear" id="clearBtn"/></p>
 
 		<script type="text/javascript">
+		
+		//alert(jQuery("#container .header .username").text());
+		
+		
 		function saveViaAJAX()
 		{
 				
 			var testCanvas = document.getElementById("paintBox");
 			var canvasData = testCanvas.toDataURL("image/png");
 			var postData = "canvasData="+canvasData;
-
 			var ajax = new XMLHttpRequest();
-			ajax.open("POST",'testSave.php',true);
+			
+			var PageToSendTo = "testSave.php?";
+			var VariablePlaceholder = "variableName=";
+			
+			//send the USERNAME ID to here... from main.js			
+			var MyVariable = jQuery("#container .header .username").text();
+			
+			//here is the userID, can send to chat.html?
+			//send the content in test to the userID and send that to chat.html?
+			$("#test").html(MyVariable);
+			alert(MyVariable);
+			
+			var UrlToSend = PageToSendTo + VariablePlaceholder + MyVariable;
+			
+			ajax.open("POST",UrlToSend,true);
 			ajax.setRequestHeader('Content-Type', 'canvas/upload');
 
 			ajax.onreadystatechange=function()
@@ -168,8 +199,11 @@
 		}
 
 		</script>
-				
-			
+		
+		<!-- send this userID to chat.html? -->		
+		<div id="test">userID</div>
+		
+		
 	</div><!-- /content -->
 
 	<div data-role="footer">
@@ -182,7 +216,7 @@
 
 	<div data-role="header">
 		<a href="#" data-rel="back" data-icon="arrow-l">Back</a>
-		<h1>Preview your instrument:</h1>
+		<h1>Fire!</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -268,7 +302,7 @@
 					audioPullBack.setAttribute('src', 'wav/brass.wav');
 					
 					var audioRelease = document.createElement('audio');
-					audioRelease.setAttribute('src', 'wav/beep.wav');
+					audioRelease.setAttribute('src', 'wav/fire.mp3');
 					
 					
 				</script>
@@ -382,7 +416,7 @@
 					void mousePressed()
 					{
 					  // load sound - arrow pull back
-					  audioPullBack.play();
+					  //audioPullBack.play();
 					  press = new PVector(mouseX, mouseY);
 					  winner = false;
 					}

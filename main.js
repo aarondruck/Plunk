@@ -1,3 +1,6 @@
+// using easywebsocket.org
+
+
 var ChatAnywhere	= function(){
 	
 	var channelName	= jQuery.url.param("channel")	|| "wsanywhere-chat";
@@ -28,12 +31,12 @@ var ChatAnywhere	= function(){
 		chatAreaEl.scrollTop = jQuery("#container .chatArea").height();
 		
 	}
+	
 	var setMessage	= function(tmplData){
 		updateChatArea("tmplChatMessage", tmplData)
-		
 		updateImage();
-		
 	}
+	
 	var setJoin	= function(tmplData){
 		updateChatArea("tmplChatJoin", tmplData)
 	}
@@ -84,18 +87,20 @@ var ChatAnywhere	= function(){
 	// 	alert("fireThisEvent()!");
 	// }
 	
-	//PINGS THE BROWSER
+	//PINGS THE BROWSER, fires on the mobile side index.php, not desktop browser
 	ChatAnywhere.prototype.fireThisEvent = function()
 	{
+		//set userID in chat.html from index.php here?
+		//$('#result').load('draw/index.php #test');
 		
-		var username = "ping";
+		var username = jQuery("#container .header .username").text()
 		var message	= "here's a message";
 		if( !message )	return false;
 		//this is what is fired off with the username and message... sendMessage()
 		sendMessage(username, inputEl.value);
 		inputEl.value	= "";
 		return false;
-	
+		
 	}
 	
 	//send the event!
@@ -110,9 +115,22 @@ var ChatAnywhere	= function(){
 	// 	return false;
 	// })
 	
+	//display image on canvas
 	function updateImage() {
-		//display image on canvas
-		$("#bigCanvasArea .myImage").html("<img src='draw/images/image.png' style='width:2000px;height:2000px;margin:0 auto;'>");
+		
+		//send the userID from index.php to chat.html, and grab the userID here?
+		//alert($("#result").text());
+		
+		//$.get('draw/index.php')
+		//need to grab the new userID from phone here, not from browser
+		//alert(jQuery("#container .chatArea .username").text());
+		
+		// need to grab userID from canvas here?
+		
+		
+		//change user name to above
+		var usernameForImage = "user-9701";
+		$("#bigCanvasArea .myImage").html("<img src='draw/images/" + usernameForImage + "-image.png' style='width:2000px;height:2000px;margin:0 auto;'>");
 		
 		$("#bigCanvasArea .myImage img").animate({
 		   top: (Math.floor(Math.random()*501)),
@@ -128,7 +146,6 @@ var ChatAnywhere	= function(){
 		   width: 200
 		}, 175).animate({
 		   //bounce up
-		   box-shadow: 10px 10px 5px #888,
 		   height: 205,
 		   width: 205
 		}, 125).animate({
@@ -138,7 +155,7 @@ var ChatAnywhere	= function(){
 		
 		//LOAD SOUND - arrow dart
 		var audioSplatt = document.createElement('audio');
-		audioSplatt.setAttribute('src', 'draw/wav/sitar.wav');
+		audioSplatt.setAttribute('src', 'draw/wav/impact.wav');
 		audioSplatt.play();	
 	}
 	
@@ -148,12 +165,11 @@ var ChatAnywhere	= function(){
 	}
 	var sendMessage	= function(username, message){
 				
-		//alert("testing");
 		socketSend({
 			type	: "message", // change the type?
 			data	: {
-				username: username,
-				message	: inputEl.value + " asfdsaf asdfasd"		
+				username: "Latest " + username,
+				message	: inputEl.value + " fire!"		
 				//image				
 			}
 		});
@@ -184,6 +200,8 @@ var ChatAnywhere	= function(){
 			}
 		});
 	}
+	
+
 	
 }
 

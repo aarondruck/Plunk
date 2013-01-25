@@ -1,3 +1,5 @@
+<!-- http://permadi.com/blog/2010/10/html5-saving-canvas-image-data-using-php-and-ajax/ -->
+
 <?php
 
 if (isset($GLOBALS["HTTP_RAW_POST_DATA"]))
@@ -17,8 +19,11 @@ if (isset($GLOBALS["HTTP_RAW_POST_DATA"]))
     //echo "unencodedData".$unencodedData;
     // Save file.  This example uses a hard coded filename for testing, 
     // but a real application can specify filename in POST variable
-
-    $fp = fopen( 'images/image.png', 'wb' );
+	$filedirectory = 'images/';
+	$userID = $_GET['variableName'];
+	$filename ='-image.png';
+	
+    $fp = fopen( $filedirectory.$userID.$filename, 'wb' );
 
     fwrite( $fp, $unencodedData);
 
