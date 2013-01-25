@@ -29,7 +29,6 @@ var ChatAnywhere	= function(){
 		// scroll to the bottom
 		var chatAreaEl	= jQuery("#container .chatArea").get(0);
 		chatAreaEl.scrollTop = jQuery("#container .chatArea").height();
-		
 	}
 	
 	var setMessage	= function(tmplData){
@@ -71,7 +70,7 @@ var ChatAnywhere	= function(){
 		if( event.type == "message" ){
 			setMessage(event.data);			
 		}else if( event.type == "join" ){
-			setJoin(event.data);
+			setJoin(event.data);			
 		}else if( event.type == "left" ){
 		}else if( event.type == "rename" ){
 			setRename(event.data);
@@ -92,13 +91,14 @@ var ChatAnywhere	= function(){
 	{
 		//set userID in chat.html from index.php here?
 		//$('#result').load('draw/index.php #test');
+		//this is what appears in the chatbox on chat.html in chatArea
 		
 		var username = jQuery("#container .header .username").text()
 		var message	= "here's a message";
 		if( !message )	return false;
 		//this is what is fired off with the username and message... sendMessage()
 		sendMessage(username, inputEl.value);
-		inputEl.value	= "";
+		inputEl.value	= "";		
 		return false;
 		
 	}
@@ -123,13 +123,13 @@ var ChatAnywhere	= function(){
 		
 		//$.get('draw/index.php')
 		//need to grab the new userID from phone here, not from browser
-		//alert(jQuery("#container .chatArea .username").text());
+		//alert(jQuery("#container .chatArea div:last-child span.username").text());
 		
 		// need to grab userID from canvas here?
 		
 		
 		//change user name to above
-		var usernameForImage = "user-9701";
+		var usernameForImage = jQuery("#container .chatArea div:last-child span.username").text();
 		$("#bigCanvasArea .myImage").html("<img src='draw/images/" + usernameForImage + "-image.png' style='width:2000px;height:2000px;margin:0 auto;'>");
 		
 		$("#bigCanvasArea .myImage img").animate({
@@ -168,7 +168,7 @@ var ChatAnywhere	= function(){
 		socketSend({
 			type	: "message", // change the type?
 			data	: {
-				username: "Latest " + username,
+				username: username,
 				message	: inputEl.value + " fire!"		
 				//image				
 			}

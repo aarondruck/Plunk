@@ -169,7 +169,7 @@
 			//here is the userID, can send to chat.html?
 			//send the content in test to the userID and send that to chat.html?
 			$("#test").html(MyVariable);
-			alert(MyVariable);
+			//alert(MyVariable);
 			
 			var UrlToSend = PageToSendTo + VariablePlaceholder + MyVariable;
 			
@@ -201,7 +201,7 @@
 		</script>
 		
 		<!-- send this userID to chat.html? -->		
-		<div id="test">userID</div>
+		<!-- <div id="test">userID</div> -->
 		
 		
 	</div><!-- /content -->
