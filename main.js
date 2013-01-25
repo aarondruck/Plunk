@@ -128,7 +128,7 @@ var ChatAnywhere	= function(){
 		// need to grab userID from canvas here?
 		
 		
-		//change user name to above
+		//change user name to above, APPEND THE HTML TO THE PAGE! so multiple users can add their images
 		var usernameForImage = jQuery("#container .chatArea div:last-child span.username").text();
 		$("#bigCanvasArea .myImage").html("<img src='draw/images/" + usernameForImage + "-image.png' style='width:2000px;height:2000px;margin:0 auto;'>");
 		
