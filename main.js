@@ -130,7 +130,7 @@ var ChatAnywhere	= function(){
 		
 		//change user name to above, APPEND THE HTML TO THE PAGE! so multiple users can add their images
 		var usernameForImage = jQuery("#container .chatArea div:last-child span.username").text();
-		$("#bigCanvasArea .myImage").html("<img src='draw/images/" + usernameForImage + "-image.png' style='width:2000px;height:2000px;margin:0 auto;'>");
+		$("#bigCanvasArea .myImage").append("<img src='draw/images/" + usernameForImage + "-image.png' style='position:relative; width:2000px;height:2000px;margin:0 auto;'>");
 		
 		$("#bigCanvasArea .myImage img").animate({
 		   top: (Math.floor(Math.random()*501)),
