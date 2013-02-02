@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Clint Picasso</title> 
 	<link rel="stylesheet" href="main.css" />
 	<!-- json2 is included because some browsers doesnt have it (e.g. ie8)	-->
 	<script src="json2.js"></script>		
@@ -10,6 +11,26 @@
 	<script src="jQuery.url.js"></script>
 	<script src="main.js"></script>
 	<script src="http://www.bitstorm.org/jquery/shadow-animation/archive/jquery.animate-shadow-min.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		//check if mobile device
+		var isiPhone = navigator.userAgent.toLowerCase().indexOf("iphone");
+				var isiPad = navigator.userAgent.toLowerCase().indexOf("ipad");
+				  	var isiPod = navigator.userAgent.toLowerCase().indexOf("ipod");
+
+				if(isiPhone > -1)
+				{
+				    //Redirect to iPhone Version of the website.
+				  	window.location.href = "http://labs.whatthedruck.com/Plunk/draw/";
+
+				}
+				if(isiPad > -1)
+				{
+					alert("iPad");
+				    //Redirect to iPad Version of the website.
+				}
+	</script>
+	
 </head>
 <body>
 	
@@ -25,16 +46,21 @@
 		}
 	</style>
 	
-	<ol class="directions">
+	<!-- <ol class="directions">
 		<li>Keep this page open</li>
 		<li>Go to chat.html on your mobile browser</li>
 		<li>Draw a picture</li>
 		<li>Fling it to this page</li>
-	</ol>
+	</ol> -->
 	
 	<!-- <div id="result"></div> -->
 	
-	<div id="bigCanvasArea" style="margin:0 auto;width:800px;height:700px;background:#fff;color:#000">
+	<div id="myintro">
+		<h1>Clint Picasso</h1>
+		<h3>Keep this site open on your desktop. Open this same site on your phone. *Draw a picture and shoot it to this canvas!</h3>
+		<h4>*Remember to turn up the volume on both desktop and mobile!</h4>
+	</div>
+	<div id="bigCanvasArea" class="myblankcanvas">
 		
 		<div class="myImage"></div>
 
@@ -75,10 +101,14 @@
 
 			<hr/>
 		</div>
-		
-		
-		
-		
 	</div>
+	
+	
+	<div id="footer-contact">
+		<div id="footer-text">
+			<p>Designed and built by <a href="http://www.twitter.com/adruck" target="_blank">@adruck</a> in San Francisco.</p>
+		</div>
+	</div>
+	
 </body>
 </html>

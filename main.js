@@ -1,6 +1,4 @@
 // using easywebsocket.org
-
-
 var ChatAnywhere	= function(){
 	
 	var channelName	= jQuery.url.param("channel")	|| "wsanywhere-chat";
@@ -133,8 +131,8 @@ var ChatAnywhere	= function(){
 		$("#bigCanvasArea .myImage").append("<img src='draw/images/" + usernameForImage + "-image.png' style='position:relative; width:2000px;height:2000px;margin:0 auto;'>");
 		
 		$("#bigCanvasArea .myImage img").animate({
-		   top: (Math.floor(Math.random()*501)),
-		   left: (Math.floor(Math.random()*501)),
+		   top: (Math.floor(Math.random()*300)),
+		   left: (Math.floor(Math.random()*80)),
 		   height: 200,
 		   width: 200
 		}, 1000).animate({

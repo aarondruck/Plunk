@@ -1,6 +1,81 @@
 body {
-	background-color: #666;
+	background-color: #efefef;
+	width: 100%;
+	text-align: center;
 }
+
+.myblankcanvas {
+	margin:0 auto;
+	width:960px;
+	height:700px;
+	background:#fff;
+	color:#000;
+	border:1px solid #ccc;
+	
+}
+
+#bigCanvasArea {
+	width:960px;
+	height:700px;
+}
+
+#myintro{
+	margin: 0px auto;
+}
+
+#myintro h1{
+	font-size: 40px;
+	font-weight: 200;
+	line-height: 1;
+	letter-spacing: -1px;
+	font-family: 'Helvetica Neue', Helvetica;
+	color: rgb(90, 90, 90);
+	margin: 10px auto;
+}
+
+#myintro h3 {
+	margin: 10px auto;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.25;
+	color: #999;
+	font-family: 'Helvetica Neue', Helvetica;
+}
+
+#myintro h4 {
+	width:600px;
+	margin: 10px auto;
+	font-size: 10px;
+	font-weight: 300;
+	line-height: 1.25;
+	color: #999;
+	font-family: 'Helvetica Neue', Helvetica;
+}
+
+#footer-contact {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.25;
+	color: #999;
+	font-family: 'Helvetica Neue', Helvetica;
+	width:100%;
+}
+
+#footer-text {
+	width:300px;
+	margin: 0px auto;
+}
+
+#footer-text a {
+	text-decoration:none;
+	color:#4d7bbe;
+}
+
+#footer-text a:hover {
+	text-decoration:underline;
+	color:#4d7bbe;
+}
+
 #container {
 	position	: absolute;
 	left		: 50%;

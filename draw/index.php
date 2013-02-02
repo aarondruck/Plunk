@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-	<title>Plunk</title> 
+	<title>Clint Picasso</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0.min.css" />
 	<script src="js/jquery.js"></script>
@@ -26,8 +26,14 @@
 		{
 		  border:1px solid #9a9a9a;
 		  width:100%;
-		  height: 200px;
+		  height: 280px;
 		}
+		
+		#mycanvas{
+			margin-top:-20px;
+			border:1px solid #ccc;
+		}
+		
 	</style>
 	
 	<script type="text/javascript">
@@ -119,7 +125,7 @@
 	
 	
 	<!-- this just shows the username ID -->
-	<div id="container">
+	<div id="container" style="display:none;">
 		<div class="header">
 			<div class="userContainer">
 				<span class="username value">Unknown</span>
@@ -135,7 +141,7 @@
 
 	<div data-role="header">
 		<h1>Draw a picture</h1>
-		<a href="#page4" data-transition="slide" data-icon="arrow-r"  rel="external" onclick="saveViaAJAX();">Next</a>
+		<a href="#page4" data-transition="slide" data-icon="arrow-r"  rel="external" onclick="saveViaAJAX();" class="ui-btn-right">Next</a>
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -144,8 +150,12 @@
 	  	<canvas id="paintBox">
 	    	Your browser does not support canvas
 	  	</canvas>
-		<input type="button" value="Save" id="saveBtn" />
-    	<input type="button" value="Clear" id="clearBtn"/></p>
+		
+		<center>
+			<a href="#" data-role="button" data-inline="true" id="clearBtn">Clear</a>
+		<a href="#" data-role="button" data-inline="true" data-theme="b" id="saveBtn">Save</a>
+		</center>
+
 
 		<script type="text/javascript">
 		
@@ -206,9 +216,7 @@
 		
 	</div><!-- /content -->
 
-	<div data-role="footer">
-		<h4>Page Footer</h4>
-	</div><!-- /footer -->
+
 </div><!-- /page -->
 
 <!-- Start of IFTTT IDEA -->
@@ -309,16 +317,16 @@
 				
 				<script type="text/processing" data-processing-target="mycanvas">
 					//initialize variables
-					int leftRodTopX = 120;
+					int leftRodTopX = 55;
 					int leftRodTopY = 60;
-					int rightRodTopX = 185;
+					int rightRodTopX = 235;
 					int rightRodTopY = 60;
 					int rectLeftX = 150;
-					int rectMidX = 155;
-					int rectTopY = 200;
+					int rectMidX = 145;
+					int rectTopY = 500;
 					int rectWidth = 10;
 					int rectHeight = 100;
-					float slingMid = 152.5;
+					float slingMid = 145;
 					float ellipseCenterX = pmouseX;
 					float ellipseCenterY = pmouseY;
 					float x;
@@ -339,7 +347,7 @@
 
 					void setup(){
 					
-						size(290,400);
+						size(290,340);
 						background(255);
 						smooth();
 						fill(50);
@@ -357,7 +365,7 @@
 
 					void draw(){
 						
-						image(b, 50, 40, 300, 416);
+						image(b, 100, -20, 100, 139);
 						
 						if(mousePressed){
 								
@@ -365,14 +373,14 @@
 						  bezier(900,400,880,375,880,325,912,320);
 						  fill(255,0,0);
 						  
-						  image(b, 50, mouseY-240, 300, 416);
+						  image(b, 100, mouseY-15, 100, 139);
 						  noFill();
-						  bezier(rightRodTopX,rightRodTopY,150,mouseY,150,mouseY,leftRodTopX,leftRodTopY);
+						  bezier(rightRodTopX,rightRodTopY,145,mouseY,150,mouseY,leftRodTopX,leftRodTopY);
 						  fill(0,0,255);
 						  noFill();
 						  line(rectMidX,rectTopY,rightRodTopX,rightRodTopY);
 						  line(rectMidX,rectTopY,leftRodTopX,leftRodTopY);
-						  line(150,mouseY,slingMid,leftRodTopY);	
+						  line(145,mouseY,slingMid,leftRodTopY);	
 						  
 						  				  
 						}
@@ -386,7 +394,8 @@
 						  line(leftRodTopX,leftRodTopY,rightRodTopX,rightRodTopY); //string
 						  stroke(0);
 						  //img, x, y, w, h
-						  image(b, 50, -100, 300, 416);
+						//initialize
+						image(b, 100, -20, 100, 139);
 						 }
 
 						 if(hasBeenReleased)
@@ -394,7 +403,7 @@
 						   noFill();
 						   bezier(900,400,880,375,880,325,912,320);
 						   fill(255,0,0);
-						   image(b, 50, release.y-240, 300, 416);
+						   image(b, 100, release.y-240, 100, 139);
 						   //ellipse(150, release.y, 40, 40);
 						   release.add(press);
 						   release.y+=gravity;
@@ -495,9 +504,7 @@
 		
 	</div><!-- /content -->
 
-	<div data-role="footer">
-		<h4>Page Footer</h4>
-	</div><!-- /footer -->
+
 </div><!-- /page -->
 
 </body>
