@@ -15,18 +15,18 @@
 	<script type="text/javascript" charset="utf-8">
 		//check if mobile device
 		var isiPhone = navigator.userAgent.toLowerCase().indexOf("iphone");
-				var isiPad = navigator.userAgent.toLowerCase().indexOf("ipad");
-				  	var isiPod = navigator.userAgent.toLowerCase().indexOf("ipod");
-
+		var isiPad = navigator.userAgent.toLowerCase().indexOf("ipad");
+		var isAndroid = navigator.userAgent.toLowerCase().indexOf("android");
+		
 				if(isiPhone > -1)
 				{
 				    //Redirect to iPhone Version of the website.
-				  	window.location.href = "http://labs.whatthedruck.com/Plunk/draw/";
+				  	window.location.href = "http://www.clintpicasso.com/draw/";
 
 				}
-				if(isiPad > -1)
+				if(isAndroid > -1)
 				{
-					alert("iPad");
+					alert("Sorry, not supported for Android yet!");
 				    //Redirect to iPad Version of the website.
 				}
 	</script>
@@ -106,7 +106,7 @@
 	
 	<div id="footer-contact">
 		<div id="footer-text">
-			<p>Designed and built by <a href="http://www.twitter.com/adruck" target="_blank">@adruck</a> in San Francisco.</p>
+			<p>Designed and built by <a href="http://www.twitter.com/adruck" target="_blank">@adruck</a> in San Francisco. Code on <a href="https://github.com" target="_blank">Github</a>.  Demo on <a href="http://www.youtube.com/watch?v=hNA29Vmqvpg" target="_blank">YouTube</a>. </p>
 		</div>
 	</div>
 	
